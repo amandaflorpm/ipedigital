@@ -1,6 +1,6 @@
 # Desafio Ipê Digital
 
-Projeto de um e-commerce desenvolvido para a [Ipê Digital](http://ipe.digital). Inspirado nas aulas de PHP 7 disponíveis em [Udemy](https://www.udemy.com/course/curso-php-7-online)
+Projeto de um e-commerce desenvolvido para a [Ipê Digital](http://ipe.digital). Inspirado nas aulas de PHP 7 disponíveis em [Udemy](https://www.udemy.com/course/curso-php-7-online).
 
 Template usado no projeto: [Almsaeed Studio](https://almsaeedstudio.com)
 
