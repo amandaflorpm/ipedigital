@@ -6,9 +6,11 @@ use Rain\Tpl; //using another namespace (Rain)
 
 class Page
 {
-	private $tpl;
+	private $tpl; 
 	private $options = [];
-	private $defaults = [
+	private $defaults = [ // Criando os defaults, exemplo: no login nao temos header e footer, serão false
+		"header"=>true,
+		"footer"=>true,
 		"data"=>[] 
 	];
 
@@ -29,7 +31,7 @@ class Page
 
 	$this->setData($this->options["data"]);
 
-	$this->tpl->draw("header");
+	if ($this->options["header"] === true) $this->tpl->draw("header");
 
 	}
 
@@ -53,7 +55,7 @@ class Page
 
 	public function __destruct()
 	{
-		$this->tpl->draw("footer");
+		if ($this->options["footer"] === true) $this->tpl->draw("footer");
 
 	}
 	////first you construct, last you destruct - "magic methods"

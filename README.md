@@ -24,11 +24,12 @@ An e-commerce project developed to [Ipê Digital](http://ipe.digital). Inspirate
 - Passo a passo da configuração do domínio virtual no windows em: [vhoststeps](https://github.com/amandaflorpm/ipedigital/tree/master/ipedigital/vhoststeps)
 - O arquivo [composer](https://github.com/amandaflorpm/ipedigital/blob/master/composer.json) contém as dependências do projeto (Framework Slim, Template Rain, phpmailer) e o autoload das classes. Executem o comando "composer update" no Git Bash para instalá-los.
 - As classes que configuram páginas, login, produtos, db e outros módulos do projeto estão em [sources](https://github.com/amandaflorpm/ipedigital/tree/master/vendor/hcodebr/php-classes/src)
-- Conexão ao DB: [cr/DB](https://github.com/amandaflorpm/ipedigital/tree/master/vendor/hcodebr/php-classes/src/DB)
+- Conexão ao DB: [scr/DB](https://github.com/amandaflorpm/ipedigital/tree/master/vendor/hcodebr/php-classes/src/DB)
+- Telas (front) estão em: [views](https://github.com/amandaflorpm/ipedigital/tree/master/views)
 
 # Observações:
 
-- Cada commit tem o comentário do que foi feito em inglês (mais acessibilidade).
+- Cada commit tem o comentário do que foi feito.
 
 - Resolvi entregar incompleto pois não queria estender mais o prazo, porém vou continuar desenvolvendo-o (quero aprender tudo que o curso propõe).
 
