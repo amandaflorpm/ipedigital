@@ -8,7 +8,8 @@ Projeto de um e-commerce desenvolvido para a [Ipê Digital](http://ipe.digital).
 An e-commerce project developed to [Ipê Digital](http://ipe.digital). Inspirated by the PHP 7 lessons available in [Udemy](https://www.udemy.com/course/curso-php-7-online).
 
 
-# Alguns recursos utilizados: [English] Requires:
+
+## Alguns recursos utilizados: [English] Requires:
 
 - [XAMPP](https://www.apachefriends.org/pt_br/index.html): Módulos Apache e MySQL
 - [MySQL](https://www.mysql.com/) Workbench
@@ -18,7 +19,7 @@ An e-commerce project developed to [Ipê Digital](http://ipe.digital). Inspirate
 - [Slim Framework](http://www.slimframework.com/)
 - [PHPMailer](https://github.com/PHPMailer/PHPMailer)
 
-# Orientações:
+## Orientações:
 
 - [DB](https://github.com/amandaflorpm/ipedigital/tree/master/db) utilizado inicialmente
 - Passo a passo da configuração do domínio virtual no windows em: [vhoststeps](https://github.com/amandaflorpm/ipedigital/tree/master/ipedigital/vhoststeps)
@@ -27,7 +28,7 @@ An e-commerce project developed to [Ipê Digital](http://ipe.digital). Inspirate
 - Conexão ao DB: [scr/DB](https://github.com/amandaflorpm/ipedigital/tree/master/vendor/hcodebr/php-classes/src/DB)
 - Telas (front) estão em: [views](https://github.com/amandaflorpm/ipedigital/tree/master/views)
 
-# Observações:
+## Observações:
 
 - Cada commit tem o comentário do que foi feito.
 
