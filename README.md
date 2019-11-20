@@ -2,30 +2,35 @@
 
 Projeto de um e-commerce desenvolvido para a [Ipê Digital](http://ipe.digital). Inspirado nas aulas de PHP 7 disponíveis em [Udemy](https://www.udemy.com/course/curso-php-7-online).
 
-Template usado no projeto: [Almsaeed Studio](https://almsaeedstudio.com)
 
 # [English] Ipê Digital Challenge
 
 An e-commerce project developed to [Ipê Digital](http://ipe.digital). Inspirated by the PHP 7 lessons available in [Udemy](https://www.udemy.com/course/curso-php-7-online).
 
-Template: [Almsaeed Studio](https://almsaeedstudio.com)
 
-#Recursos utilizados:
+# Alguns recursos utilizados: [English] Requires:
 
 - [XAMPP](https://www.apachefriends.org/pt_br/index.html): Módulos Apache e MySQL
 - [MySQL](https://www.mysql.com/) Workbench
 - [Composer](https://getcomposer.org/)
+- [Template Almsaeed Studio](https://almsaeedstudio.com)
+- [RainTPL](https://github.com/feulf/raintpl3)
+- [Slim Framework](http://www.slimframework.com/)
+- [PHPMailer](https://github.com/PHPMailer/PHPMailer)
 
-- [DB](https://github.com/amandaflorpm/ipedigital/tree/master/db) inicial
-- Passo a passo da configuração do domínio virtual no windows em: https://github.com/amandaflorpm/ipedigital/tree/master/ipedigital/vhoststeps
-- O arquivo https://github.com/amandaflorpm/ipedigital/blob/master/composer.json contém as dependências do projeto (Framework Slim, Template Rain, phpmailer) e o autoload das classes. Executem o comando "composer update" no Git Bash para instalá-los.
-- As classes que configuram páginas, login, produtos, db e outros módulos do projeto estão em https://github.com/amandaflorpm/ipedigital/tree/master/vendor/hcodebr/php-classes/src
-- Conexão ao DB: https://github.com/amandaflorpm/ipedigital/tree/master/vendor/hcodebr/php-classes/src/DB
+# Orientações:
 
-#Observações:
-- Antes de mais nada:
-1. Cada commit tem o comentário do que foi feito em inglês (para ter mais acessibilidade).
-2. Resolvi entregar incompleto pois não queria estender mais o prazo, porém vou continuar desenvolvendo-o (quero aprender tudo que o curso propõe).
+- [DB](https://github.com/amandaflorpm/ipedigital/tree/master/db) utilizado inicialmente
+- Passo a passo da configuração do domínio virtual no windows em: [vhoststeps](https://github.com/amandaflorpm/ipedigital/tree/master/ipedigital/vhoststeps)
+- O arquivo [composer](https://github.com/amandaflorpm/ipedigital/blob/master/composer.json) contém as dependências do projeto (Framework Slim, Template Rain, phpmailer) e o autoload das classes. Executem o comando "composer update" no Git Bash para instalá-los.
+- As classes que configuram páginas, login, produtos, db e outros módulos do projeto estão em [sources](https://github.com/amandaflorpm/ipedigital/tree/master/vendor/hcodebr/php-classes/src)
+- Conexão ao DB: [cr/DB](https://github.com/amandaflorpm/ipedigital/tree/master/vendor/hcodebr/php-classes/src/DB)
+
+# Observações:
+
+- Cada commit tem o comentário do que foi feito em inglês (mais acessibilidade).
+
+- Resolvi entregar incompleto pois não queria estender mais o prazo, porém vou continuar desenvolvendo-o (quero aprender tudo que o curso propõe).
 
 - Projeto final, o que é?
 Um e-commerce completo (back e front) com admin e site, cadastro de usuários, produtos, vendas, geração de boletos, cálculo de frete, criptografia de senhas,etc.
