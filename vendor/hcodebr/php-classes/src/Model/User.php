@@ -9,6 +9,40 @@ class User extends Model// Extends de Model para não ficar setando sempre o get
 {
 	const SESSION = "User"; //Criando constante sessão
 
+	/*
+
+public static function getFromSession()
+	{
+		$user = new User();
+		if (isset($_SESSION[User::SESSION]) && (int)$_SESSION[User::SESSION]['iduser'] > 0) {
+			$user->setData($_SESSION[User::SESSION]);
+		}
+		return $user;
+	} */
+
+public static function checkLogin($inadmin = true)
+	{
+		if (
+			!isset($_SESSION[User::SESSION])
+			||
+			!$_SESSION[User::SESSION]
+			||
+			!(int)$_SESSION[User::SESSION]["iduser"] > 0
+		) {
+			//Não está logado
+			return false;
+		} else {
+			if ($inadmin === true && (bool)$_SESSION[User::SESSION]['inadmin'] === true) {
+				return true;
+			} else if ($inadmin === false) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+	// acaba comment aqui
+
 	public static function login($login, $password)
 	{
 		$sql = new Sql(); // Acessando o db
@@ -50,7 +84,7 @@ class User extends Model// Extends de Model para não ficar setando sempre o get
 
 	public static function verifyLogin($inadmin = true)
 	{
-		if (
+		/* if (
 			!isset($_SESSION[User::SESSION]) // Não existe User nessa Session?
 			||
 			!$_SESSION[User::SESSION]
@@ -63,14 +97,16 @@ class User extends Model// Extends de Model para não ficar setando sempre o get
 			header("Location: /admin/login");
 			exit;
 
-		}
-		/* if(!User::checkLogin($inadmin)) {
+		} */
+		if (!User::checkLogin($inadmin)) {
  
-        if ($inadmin){
-            header("Location: /admin/login");
-        } else {
-            header("Location: /login");
-        } */
+       		if ($inadmin){
+            	header("Location: /admin/login");
+        	}
+        	else {
+           		header("Location: /login");
+        	}
+    	}
  
     }
 	
