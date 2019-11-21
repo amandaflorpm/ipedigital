@@ -33,20 +33,20 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="../../index2.html" method="post">
+    <form action="/admin/login" method="post"> <!--ATENÇÃO AO MÉTODO POST -->
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Login">
+        <input type="text" class="form-control" placeholder="Login" name="login">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" name="password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-                <input type="checkbox"> Remember Me
+              <input type="checkbox"> Remember Me
             </label>
           </div>
         </div>

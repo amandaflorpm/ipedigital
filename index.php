@@ -1,5 +1,8 @@
 <?php 
 
+// Vamos iniciar o uso de sessões:
+session_start();
+
 require_once("vendor/autoload.php");
 
 // Use de cada classe:
@@ -24,6 +27,10 @@ $app->get('/', function() // Acces by get. Route: Main site
 
 $app->get('/admin', function() // Route: admin
 {
+	// Precisamos verificar o login na página do Admin, método estático a seguir
+
+	User::verifyLogin();
+
     $page = new PageAdmin();
 	
 
@@ -45,12 +52,20 @@ $app->get('/admin/login', function() //Route: admin login
 
 $app->post('/admin/login', function() // Rota com post por causa do método post na login.html
 {
-	// Validand o login:
+	// Validando o login (estamos dentro da sessão):
 	User::login($_POST["login"], $_POST["password"]); // método estático pois vai ser usado só aqui
 
 	header("Location: /admin");
 	exit;
 
+});
+
+$app->get('/admin/logout', function()
+{
+	User::logout();
+
+	header("Location: /admin/login");
+	exit;
 });
 
 $app->run();
