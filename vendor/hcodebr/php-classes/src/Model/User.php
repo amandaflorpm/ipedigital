@@ -9,18 +9,8 @@ class User extends Model// Extends de Model para não ficar setando sempre o get
 {
 	const SESSION = "User"; //Criando constante sessão
 
-	/*
 
-public static function getFromSession()
-	{
-		$user = new User();
-		if (isset($_SESSION[User::SESSION]) && (int)$_SESSION[User::SESSION]['iduser'] > 0) {
-			$user->setData($_SESSION[User::SESSION]);
-		}
-		return $user;
-	} */
-
-public static function checkLogin($inadmin = true)
+public static function checkLogin($inadmin = true) // Checando login na sessão
 	{
 		if (
 			!isset($_SESSION[User::SESSION])
@@ -41,7 +31,7 @@ public static function checkLogin($inadmin = true)
 			}
 		}
 	}
-	// acaba comment aqui
+	
 
 	public static function login($login, $password)
 	{
@@ -84,7 +74,8 @@ public static function checkLogin($inadmin = true)
 
 	public static function verifyLogin($inadmin = true)
 	{
-		/* if (
+		/* # Esse if não deu certo, refazendo-o na function checkLogin #
+			if (
 			!isset($_SESSION[User::SESSION]) // Não existe User nessa Session?
 			||
 			!$_SESSION[User::SESSION]
@@ -111,7 +102,7 @@ public static function checkLogin($inadmin = true)
     }
 	
 
-	public static function logout()
+	public static function logout() // Fazendo o logout
 	{
 		$_SESSION[User::SESSION] = NULL;
 	}
