@@ -10,7 +10,7 @@ class User extends Model// Extends de Model para não ficar setando sempre o get
 	const SESSION = "User"; //Criando constante sessão
 
 
-public static function checkLogin($inadmin = true) // Checando login na sessão
+	public static function checkLogin($inadmin = true) // Checando login na sessão
 	{
 		if (
 			!isset($_SESSION[User::SESSION])
@@ -106,6 +106,23 @@ public static function checkLogin($inadmin = true) // Checando login na sessão
 	{
 		$_SESSION[User::SESSION] = NULL;
 	}
+
+	public static function listAll()
+	{
+		$sql = new Sql();
+
+		return $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) ORDER BY b.desperson");
+		// Unimos as tabelas users e persons, ordenando pelo nome da pessoa desperson
+	}
+
+	public function save() // Método para salvar os dados do new user no db
+	{
+		$sql = new Sql();
+
+		$sql->select(""); // #ATENÇÃO# Chamando o PROCEDURE que vai fazer o INSERT, SELECT automaticamente evitando várias linhas de código e request/response para o servidor
+		#RETORNAR AQUI#  
+	}
+
 }
 
 ?>
