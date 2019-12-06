@@ -119,8 +119,60 @@ class User extends Model// Extends de Model para não ficar setando sempre o get
 	{
 		$sql = new Sql();
 
-		$sql->select(""); // #ATENÇÃO# Chamando o PROCEDURE que vai fazer o INSERT, SELECT automaticamente evitando várias linhas de código e request/response para o servidor
-		#RETORNAR AQUI#  
+		// #ATENÇÃO# Chamando o PROCEDURE que vai fazer o INSERT, SELECT automaticamente evitando várias linhas de código e request/response para o servidor:
+		$results = $sql->select("CALL sp_users_save(:desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
+			":desperson"=>$this->getdesperson(),
+			":deslogin"=>$this->getdeslogin(),
+			":despassword"=>$this->getdespassword(),
+			":desemail"=>$this->getdesemail(),
+			":nrphone"=>$this->getnrphone(),
+			":inadmin"=>$this->getinadmin()
+			// Todos esses getters foram gerados pelo setdata
+		));
+
+		// Só nos interessa a primeira linha desse results, setando no próprio objeto:
+		$this->setData($results[0]);
+	}
+
+	// Criando método get:
+	public function get($iduser)
+	{
+		$sql = new Sql();
+
+		$results = $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) WHERE a.iduser = :iduser", array(
+			":iduser"=>$iduser
+		));
+
+		$this->setData($results[0]);
+	}
+
+	public function update() // Vai ser bem similar ao save()
+	{
+		$sql = new Sql();
+
+		$results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
+			":iduser"=>$this->getiduser(),
+			":desperson"=>$this->getdesperson(),
+			":deslogin"=>$this->getdeslogin(),
+			":despassword"=>$this->getdespassword(),
+			":desemail"=>$this->getdesemail(),
+			":nrphone"=>$this->getnrphone(),
+			":inadmin"=>$this->getinadmin()
+	
+		));
+
+		$this->setData($results[0]);
+
+	}
+
+	public function delete() // Método para deletar o usuário
+	{
+		$sql = new Sql();
+
+		$sql->query("CALL sp_users_delete(:iduser)", array(
+			":iduser"=>$this->getiduser()
+		));
+
 	}
 
 }

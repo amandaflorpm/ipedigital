@@ -97,15 +97,30 @@ $app->get("/admin/users/:iduser/delete", function($iduser) // Rota para deletar 
 {
 	User::verifyLogin();
 
+	$user = new User();
+
+	$user->get((int)$iduser);
+
+	$user->delete();
+
+	header("Location: /admin/users"); // Criar o método delete em User.php
+	exit;
+
 });
 
 $app->get("/admin/users/:iduser", function($iduser) // Rota do update users - #ATENÇÃO# estamos chamando o usuário que queremos alterar em :iduser
 {
 	User::verifyLogin();
 
+	$user = new User(); // Chamando um novo usuário
+
+	$user->get((int)$iduser);
+
 	$page = new PageAdmin();
 
-	$page->setTpl("users-update");	// Buscando template users-update
+	$page->setTpl("users-update", array( 	// Buscando template users-update
+		"user"=>$user->getValues() // Passamos os valores para a chave "user"
+	));
 
 });
 
@@ -117,15 +132,34 @@ $app->post("/admin/users/create", function() // Rota para salvar o user criado (
 
 	$user = new User(); // Criando o novo usuário
 
+	$_POST["inadmin"] = (isset($_POST["inadmin"]))?1:0; // Se inadmin foi definido o valor é 1, senãoé 0
+
 	$user->setData($_POST); // Método setData: cria automaticamente as variáveis no Data Access Object
 
-	var_dump($user);
+	$user->save(); // save() vai executar o INSERT dentro do banco
+
+	header("Location: /admin/users"); // Depois de criar o user redirecionar para a tabela
+	exit;
 
 });
 
 $app->post("/admin/users/:iduser", function($iduser) // Rota para salvar o user que teve update
 {
 	User::verifyLogin();
+
+	$user = new User();
+
+	$_POST["inadmin"] = (isset($_POST["inadmin"]))?1:0;
+
+	// Trazer tudo do banco para depois alterar:
+	$user->get((int)$iduser);	
+
+	$user->setData($_POST);
+
+	$user->update(); // Criando o método update no User.php
+
+	header("Location: /admin/users");
+	exit;
 
 });
 
